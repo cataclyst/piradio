@@ -79,10 +79,12 @@ class PiRadio:
       while True:
         time.sleep(10)
     except KeyboardInterrupt:
-      print("Shutting down threads")
+      if DEBUG:
+        print("Shutting down threads")
       rotator_thread.stop()
       button_thread.stop()
-      print("Threads shut down")
+      if DEBUG:
+        print("Threads shut down")
     except:
       rotator_thread.stop()
       button_thread.stop()
